@@ -1,7 +1,7 @@
-# Timer control with LCD 
----
+# Timer control with LCD
+
 Temporizador programable via USB. Posee 2 modos de funcionamiento
-* **Temporizado:** Cuenta regresiva desde el tiempo seteado. El tiempo puede ser cambiado desde la interfaz serial 
+* **Temporizado:** Cuenta regresiva desde el tiempo seteado. El tiempo puede ser cambiado desde la interfaz serial
 * **Manual**: Activado constante hasta accionar el pulsador de encendido
 
 ## Configuracion Inicial
@@ -16,14 +16,14 @@ La cantidad de minutos que cuenta el modo temporizado se encuentra guardado en l
 
 ## Screenshots
 
-![](https://github.com/MartinDardis/timer_pump_arduino/DOCS/serial_init.png)
+![](https://github.com/MartinDardis/timer_pump_arduino/tree/master/DOCS/serial_init.png)
 
-![](https://github.com/MartinDardis/timer_pump_arduino/DOCS/serial_menu.png)
+![](https://github.com/MartinDardis/timer_pump_arduino/tree/master/DOCS/serial_menu.png)
 
 ## Hardware
 
 |Cant|Item|
-|---------|
+|---|
 |1|Arduino Nano|
 |1|LCD Display 16x21|
 |1|Relay 12v 40 AMP|
@@ -32,4 +32,3 @@ La cantidad de minutos que cuenta el modo temporizado se encuentra guardado en l
 |1|TIP41|
 |-|Various Capacitor and resistor|
 |-|Perinax PCB|
-
