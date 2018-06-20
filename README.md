@@ -16,14 +16,14 @@ La cantidad de minutos que cuenta el modo temporizado se encuentra guardado en l
 
 ## Screenshots
 
-![](https://github.com/MartinDardis/timer_pump_arduino/tree/master/DOCS/serial_init.png)
+![](https://github.com/MartinDardis/timer_pump_arduino/blob/master/DOCS/serial_init.png "Init message")
 
-![](https://github.com/MartinDardis/timer_pump_arduino/tree/master/DOCS/serial_menu.png)
+![](https://github.com/MartinDardis/timer_pump_arduino/blob/master/DOCS/serial_menu.png "Serial Menu")
 
 ## Hardware
 
 |Cant|Item|
-|---|
+|---|---|
 |1|Arduino Nano|
 |1|LCD Display 16x21|
 |1|Relay 12v 40 AMP|
@@ -31,4 +31,4 @@ La cantidad de minutos que cuenta el modo temporizado se encuentra guardado en l
 |1|LM7812|
 |1|TIP41|
 |-|Various Capacitor and resistor|
-|-|Perinax PCB|
+|-|Pertinax PCB|
