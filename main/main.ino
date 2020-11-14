@@ -57,9 +57,9 @@ void loop (){
     imprimir_mensaje(MOTOR_APAGADO,0);
     digitalWrite(PIN_LED_SALIDA,LED_APAGADO);
     while(digitalRead(PULS_MANUAL)== PRESIONADO);
+    delay(500);
  }
   if (digitalRead(PULS_MANUAL)== PRESIONADO){
-    while(digitalRead(PULS_MANUAL)== PRESIONADO);
     if(estado_manual==false){
       Serial.println("Modo MANUAL ACTIVADO");
       imprimir_mensaje(MOTOR_ENCENDIDO,0);
@@ -74,6 +74,8 @@ void loop (){
       digitalWrite(PIN_LED_SALIDA,LED_APAGADO);
       estado_manual=false;
     }
+    while(digitalRead(PULS_MANUAL)== PRESIONADO);
+    delay(500);
  }
 
 
@@ -133,17 +135,17 @@ void menu_serial(){
   int opcion = 0;
   Serial.print("\n");
   Serial.print(" Elija una opcion\n");
-  Serial.print(" 1 -> Activar\n 2 -> Desactivar\n 3 -> Configurar\n 4 -> Ver configuracion actual\n 5 -> MODO TIMER\n 6 -> Salir\n");
+  Serial.print(" 1 -> Activar\n 2 -> Desactivar\n 3 -> Configurar\n 4 -> Ver configuracion actual\n 5 -> MODO TIMER\n 6 -> VERSION\n 7 -> Salir\n");
   Serial.print("\n");
   lcd.clear();
   lcd.print("Modo USB");
   digitalWrite(PIN_LED_SALIDA,LED_ENCENDIDO);
-  while(Serial && opcion != 6){
+  while(Serial && opcion != 7){
     lcd.setCursor(0,1);
     if(Serial.available()>0){
       String input = Serial.readString();
       opcion = input.toInt();
-      if (opcion < 1 || opcion > 6)
+      if (opcion < 1 || opcion > 7)
         opcion = 0;
       }
      if(opcion == 1 && estado_manual == false){
@@ -170,7 +172,10 @@ void menu_serial(){
      }
      else if ( opcion == 5){
       modo_timmer = true;
-      opcion = 6;
+      opcion = 7;
+     }else if ( opcion == 6){
+      Serial.println("VERSION 2.0");
+      opcion = 7; 
      }
   }
   digitalWrite(PIN_LED_SALIDA,LED_APAGADO);
