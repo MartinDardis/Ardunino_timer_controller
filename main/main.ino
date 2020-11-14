@@ -40,6 +40,7 @@ void loop (){
       menu_serial();
   }
   if ( (digitalRead(PULS_INICIAR_TEMPO)== PRESIONADO || modo_timmer) && estado_manual==false){
+    while(digitalRead(PULS_INICIAR_TEMPO)== PRESIONADO);
     Serial.println("Modo TIMER, presione x para cancelar");
     if(modo_timmer) modo_timmer = false;
     int tiempo_total = min_activo_tempo*60;
@@ -49,29 +50,30 @@ void loop (){
     for(long int i=min_activo_tempo*60; i>0 ;i--,i--){
       imprimir_serial_lcd_restant(i);
       delay(1000);
-      if(digitalRead(PULS_MANUAL)== PRESIONADO || Serial.readString()[0] == CANCELAR )
+      if(digitalRead(PULS_MANUAL) == PRESIONADO || Serial.readString()[0] == CANCELAR )
         i=0;
      }
     digitalWrite(PIN_SALIDA,LIBERADO);
     imprimir_mensaje(MOTOR_APAGADO,0);
     digitalWrite(PIN_LED_SALIDA,LED_APAGADO);
+    while(digitalRead(PULS_MANUAL)== PRESIONADO);
  }
   if (digitalRead(PULS_MANUAL)== PRESIONADO){
-  delay(300);
-  if(estado_manual==false){
-    Serial.println("Modo MANUAL ACTIVADO");
-    imprimir_mensaje(MOTOR_ENCENDIDO,0);
-    digitalWrite(PIN_LED_SALIDA,LED_ENCENDIDO);
-    digitalWrite(PIN_SALIDA,ACCIONADO);
-    estado_manual=true;
-  }
-  else{
-    Serial.println("Modo MANUAL DESACTIVADO");
-    digitalWrite(PIN_SALIDA,LIBERADO);
-    imprimir_mensaje(MOTOR_APAGADO,0);
-    digitalWrite(PIN_LED_SALIDA,LED_APAGADO);
-    estado_manual=false;
-  }
+    while(digitalRead(PULS_MANUAL)== PRESIONADO);
+    if(estado_manual==false){
+      Serial.println("Modo MANUAL ACTIVADO");
+      imprimir_mensaje(MOTOR_ENCENDIDO,0);
+      digitalWrite(PIN_LED_SALIDA,LED_ENCENDIDO);
+      digitalWrite(PIN_SALIDA,ACCIONADO);
+      estado_manual=true;
+    }
+    else{
+      Serial.println("Modo MANUAL DESACTIVADO");
+      digitalWrite(PIN_SALIDA,LIBERADO);
+      imprimir_mensaje(MOTOR_APAGADO,0);
+      digitalWrite(PIN_LED_SALIDA,LED_APAGADO);
+      estado_manual=false;
+    }
  }
 
 
