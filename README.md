@@ -32,3 +32,4 @@ La cantidad de minutos que cuenta el modo temporizado se encuentra guardado en l
 |1|TIP41|
 |-|Various Capacitor and resistor|
 |-|Pertinax PCB|
+
